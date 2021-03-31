@@ -1,3 +1,11 @@
-.App {
+.app {
   text-align: center;
+}
+
+.app-header {
+  margin-bottom: 30px;
+}
+
+.actions {
+  margin-bottom: 30px;
 }

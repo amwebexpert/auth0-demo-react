@@ -12,7 +12,9 @@ ReactDOM.render(
       domain="amwebexpert.us.auth0.com"
       clientId="ofZTxqmsiHSIu9uLHjlevHRDKObDAhuP"
       redirectUri={window.location.origin}
-    >
+      audience="https://amwebexpert.us.auth0.com/api/v2/"
+      scope="read:current_user update:current_user_metadata"
+      >
       <App />
     </Auth0Provider>
     ,
