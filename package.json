@@ -2,6 +2,7 @@
   "name": "sample-02",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@auth0/auth0-react": "^1.4.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
