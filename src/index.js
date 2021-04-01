@@ -6,6 +6,10 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { registerGlobalMessagesListener } from "./utils/post-messages-utils";
+
+// Setup our messages receiver
+registerGlobalMessagesListener();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import {postMessageWebView} from '../utils/post-messages-utils';
+import {postMessageToWebView} from '../utils/post-messages-utils';
 
 const Profile = () => {
   const {
@@ -23,7 +23,7 @@ const Profile = () => {
         });
 
         const data = {accessToken, userSub: user.sub};
-        postMessageWebView('accessTokenRetrieved', data);
+        postMessageToWebView('accessTokenRetrieved', data);
 
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
