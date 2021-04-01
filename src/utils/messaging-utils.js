@@ -13,10 +13,10 @@ export const registerGlobalMessagesListener = () => {
   window.addEventListener('message', handleMessage);
 }
 
-async function handleMessage(message) {
-  alert(`SPA received a message: \n${message}`);
+async function handleMessage(event) {
+  const { type, data } = event.data;
+  alert(`SPA received a message: \n${type}`);
 
-  const { type, data } = message;
   switch (type) {
     case 'getValidAccessToken':
       const domain = "amwebexpert.us.auth0.com";
