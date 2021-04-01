@@ -23,7 +23,7 @@ const Profile = () => {
         if (window.ReactNativeWebView) {
           window.ReactNativeWebView.postMessage(accessToken);
         } else {
-          alert(accessToken);
+          console.log('ReactNativeWebView not available', accessToken);
         }
 
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
@@ -56,7 +56,7 @@ const Profile = () => {
       <div>
         <h2>{user.name}</h2>
         <p>{user.email}</p>
-        <h3>User Metadata</h3>
+        <strong>User metadata:</strong>
         {userMetadata ? (
           <pre style={{ display: 'inline-block', border: '1px solid grey', textAlign: "left", padding: 20 }}>
             {JSON.stringify(userMetadata, null, 2)}
