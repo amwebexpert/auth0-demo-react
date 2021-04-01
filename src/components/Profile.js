@@ -56,7 +56,7 @@ const Profile = () => {
       <div>
         <h2>{user.name}</h2>
         <p>{user.email}</p>
-        <strong>User metadata:</strong>
+        <div><strong>User metadata:</strong></div>
         {userMetadata ? (
           <pre style={{ display: 'inline-block', border: '1px solid grey', textAlign: "left", padding: 20 }}>
             {JSON.stringify(userMetadata, null, 2)}
