@@ -21,9 +21,9 @@ const Profile = () => {
         });
 
         if (window.ReactNativeWebView) {
-          window.ReactNativeWebView.postMessage(accessToken);
+          window.ReactNativeWebView.postMessage({accessToken, userSub: user.sub});
         } else {
-          console.log('ReactNativeWebView not available', accessToken);
+          console.log('ReactNativeWebView not available', accessToken, user.sub);
         }
 
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
