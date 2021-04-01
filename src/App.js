@@ -5,9 +5,14 @@ import LogoutButton from "./components/LogoutButton";
 import Profile from "./components/Profile";
 
 import "./App.css";
+import React from "react";
 
 function App() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+
+  React.useEffect(() => {
+    window.getValidAccessToken = getAccessTokenSilently;
+  }, [getAccessTokenSilently]);
 
   return (
     <div className="app">
