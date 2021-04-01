@@ -15,7 +15,10 @@ export const registerGlobalMessagesListener = () => {
 
 async function handleMessage(event) {
   const { type, data } = event.data;
-  alert(`SPA received a message: \n${JSON.stringify(event.data)}`);
+
+  if (type) {
+    alert(`SPA received a message: \n${type}`);
+  }
 
   switch (type) {
     case 'getValidAccessToken':
