@@ -1,6 +1,8 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
+import {postMessageWebView} from '../utils/post-messages-utils';
+
 const Profile = () => {
   const {
     user,
@@ -20,12 +22,8 @@ const Profile = () => {
           scope: "read:current_user",
         });
 
-        if (window.ReactNativeWebView) {
-          const data = {accessToken, userSub: user.sub};
-          window.ReactNativeWebView.postMessage(JSON.stringify(data));
-        } else {
-          console.log('ReactNativeWebView not available', accessToken, user.sub);
-        }
+        const data = {accessToken, userSub: user.sub};
+        postMessageWebView('accessTokenRetrieved', data);
 
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
