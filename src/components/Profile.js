@@ -20,6 +20,12 @@ const Profile = () => {
           scope: "read:current_user",
         });
 
+        if (window.ReactNativeWebView) {
+          window.ReactNativeWebView.postMessage(accessToken);
+        } else {
+          alert(accessToken);
+        }
+
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
         const metadataResponse = await fetch(userDetailsByIdUrl, {
