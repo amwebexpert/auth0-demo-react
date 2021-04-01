@@ -21,7 +21,8 @@ const Profile = () => {
         });
 
         if (window.ReactNativeWebView) {
-          window.ReactNativeWebView.postMessage({accessToken, userSub: user.sub});
+          const data = {accessToken, userSub: user.sub};
+          window.ReactNativeWebView.postMessage(JSON.stringify(data));
         } else {
           console.log('ReactNativeWebView not available', accessToken, user.sub);
         }
