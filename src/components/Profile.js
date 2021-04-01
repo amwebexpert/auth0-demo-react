@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import {postMessageToWebView} from '../utils/post-messages-utils';
+import {postMessageToWebView} from '../utils/messaging-utils';
 
 const Profile = () => {
   const {
