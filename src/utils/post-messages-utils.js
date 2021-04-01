@@ -1,5 +1,5 @@
 export const postMessageWebView = (type, data) => {
-  if (window && window["wv"] && window.ReactNativeWebView) {
+  if (window && window.ReactNativeWebView) {
     window.ReactNativeWebView.postMessage(JSON.stringify({ type, data }));
     return true;
   } else {
