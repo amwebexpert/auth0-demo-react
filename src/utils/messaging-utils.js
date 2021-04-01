@@ -15,7 +15,7 @@ export const registerGlobalMessagesListener = () => {
 
 async function handleMessage(event) {
   const { type, data } = event.data;
-  alert(`SPA received a message: \n${type}`);
+  alert(`SPA received a message: \n${JSON.stringify(event.data)}`);
 
   switch (type) {
     case 'getValidAccessToken':
@@ -24,8 +24,8 @@ async function handleMessage(event) {
         audience: `https://${domain}/api/v2/`,
         scope: "read:current_user",
       });
-      const data = {type: `freshAccessToken ${accessToken.substring(0, 5)}...`, data: accessToken};
-      await postMessageToWebView('accessTokenRetrieved', data);
+      const type = `freshAccessToken ${accessToken.substring(0, 5)}...`;
+      await postMessageToWebView(type, accessToken);
     break;
   
     default:
